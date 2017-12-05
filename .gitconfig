@@ -17,5 +17,3 @@
 	cp = cherry-pick
 	ca = commit -a
 	br = branch
-[http]
-[https]
