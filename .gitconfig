@@ -1,0 +1,21 @@
+[push]
+	default = simple
+[user]
+	name = peixiong.gao
+	email = peixiong.gao@hypers.com
+[alias]
+	unignore = update-index --no-assume-unchanged
+	ignore = update-index --assume-unchanged
+	cv = log --oneline -5
+	co = checkout
+	ci = commit
+	st = status
+	pl = pull
+	ps = push
+	dt = difftool
+	lg = log --stat
+	cp = cherry-pick
+	ca = commit -a
+	br = branch
+[http]
+[https]
