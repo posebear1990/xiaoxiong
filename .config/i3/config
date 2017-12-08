@@ -10,8 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # change Mod key to Alt key
-set $mod Mod1
-set $sup Mod4
+set $mod Mod4
 
 # switch in separate mode
 mode "passthrough" {
