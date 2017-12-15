@@ -62,8 +62,11 @@ exec_always google-chrome
 exec_always netease-cloud-music
 exec_always evolution
 
+# set mouse wheel speed
+exec "imwheel -kill"
+
 # remap key binding
-exec "setxkbmap -option ctrl:swapcaps,shift:rshift_both_capslock"
+exec "setxkbmap -option shift:rshift_both_capslock"
 
 # change focus
 bindsym $mod+h focus left
