@@ -54,7 +54,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xcompmgr
 exec --no-startup-id pnmixer
 exec_always i3-sensible-terminal
-exec atom
+exec emacs
+# exec atom
 exec discord
 exec /opt/cxoffice/bin/wine --bottle "TIM" --cx-app  TIM.exe
 exec_always feh --bg-fill ~/.config/i3/wallpaper.png
@@ -138,6 +139,7 @@ bindsym $mod+0 workspace 10
 
 # assign windows to workspace
 assign [class="Google-chrome"] $workspace2
+assign [class="Emacs"] $workspace3
 assign [class="Atom"] $workspace3
 assign [class="Gnome-terminal"] $workspace3
 assign [class="discord"] $workspace4
