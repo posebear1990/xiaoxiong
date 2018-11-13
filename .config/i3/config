@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # change Mod key to Alt key
-set $mod Mod4
+set $mod Mod1
 
 # switch in separate mode
 mode "passthrough" {
@@ -54,17 +54,21 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xcompmgr
 exec --no-startup-id pnmixer
 exec_always i3-sensible-terminal
-exec emacs
+# exec emacs
 # exec atom
+exec code
 exec discord
 exec /opt/cxoffice/bin/wine --bottle "TIM" --cx-app  TIM.exe
 exec_always feh --bg-fill ~/.config/i3/wallpaper.png
 exec_always google-chrome
-exec_always netease-cloud-music
-exec_always evolution
+# exec_always netease-cloud-music
+# exec_always evolution
 
 # set mouse wheel speed
 exec "imwheel -kill"
+
+# start up ss-qt5
+exec "~/download/Shadowsocks-Qt5-3.0.0-x86_64.AppImage"
 
 # remap key binding
 exec "setxkbmap -option shift:rshift_both_capslock"
@@ -144,7 +148,7 @@ assign [class="Atom"] $workspace3
 assign [class="Gnome-terminal"] $workspace3
 assign [class="discord"] $workspace4
 assign [class="Wine"] $workspace4
-assign [class="netease-cloud-music"] $workspace5
+assign [class="netease-cloud-music"] $workspace2
 assign [class="Evolution"] $workspace6
 
 
