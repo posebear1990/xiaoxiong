@@ -57,9 +57,9 @@ exec_always i3-sensible-terminal
 # exec emacs
 # exec atom
 exec code
-exec discord
-exec /opt/cxoffice/bin/wine --bottle "TIM" --cx-app  TIM.exe
-exec_always feh --bg-fill ~/.config/i3/wallpaper.png
+exec rocketchat-desktop
+#exec /opt/cxoffice/bin/wine --bottle "TIM" --cx-app  TIM.exe
+exec_always feh --bg-fill ~/.config/i3/wallpaper.jpg
 exec_always google-chrome
 # exec_always netease-cloud-music
 # exec_always evolution

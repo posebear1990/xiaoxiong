@@ -1,0 +1,14 @@
+[/]
+foreground-color='rgb(186,189,182)'
+visible-name='XxGnomeTermConfig'
+palette=['rgb(0,0,0)', 'rgb(217,79,79)', 'rgb(139,195,74)', 'rgb(196,160,0)', 'rgb(52,101,164)', 'rgb(117,80,123)', 'rgb(6,152,154)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(197,78,78)', 'rgb(152,195,121)', 'rgb(223,187,120)', 'rgb(97,175,239)', 'rgb(173,127,168)', 'rgb(86,182,194)', 'rgb(238,238,236)']
+use-system-font=true
+cursor-colors-set=false
+highlight-colors-set=false
+use-theme-colors=false
+use-transparent-background=false
+use-theme-transparency=false
+bold-color-same-as-fg=true
+background-color='rgb(40,44,52)'
+background-transparency-percent=0
+audible-bell=false

@@ -19,3 +19,5 @@
 	br = branch
 [core]
 	editor = vim
+[https]
+	proxy = 127.0.0.1:1080
