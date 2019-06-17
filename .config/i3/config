@@ -49,29 +49,36 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# set screen
+exec "sleep 2 && xrandr --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 1920x0 --rotate normal --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x360 --rotate normal --output VIRTUAL1 --off"
+exec "sleep 2 && feh --bg-fill ~/.config/i3/wallpaper.png"
+
 # start when login
 exec --no-startup-id nm-applet
 exec --no-startup-id xcompmgr
 exec --no-startup-id pnmixer
-exec_always i3-sensible-terminal
-# exec emacs
-# exec atom
+exec i3-sensible-terminal
 exec code
-exec rocketchat-desktop
-#exec /opt/cxoffice/bin/wine --bottle "TIM" --cx-app  TIM.exe
-exec_always feh --bg-fill ~/.config/i3/wallpaper.jpg
-exec_always google-chrome
-# exec_always netease-cloud-music
-# exec_always evolution
+exec google-chrome
+exec "proxychains discord"
+exec "~/Apps/electronic-wechat-linux-x64/electronic-wechat"
+exec netease-cloud-music
 
 # set mouse wheel speed
 exec "imwheel -kill"
 
-# start up ss-qt5
-exec "~/download/Shadowsocks-Qt5-3.0.0-x86_64.AppImage"
+# start up ss-client
+exec "~/Apps/Shadowsocks-Qt5-3.0.1-x86_64.AppImage"
+# exec "~/Apps/electron-ssr-0.2.6.AppImage"
 
 # remap key binding
 exec "setxkbmap -option shift:rshift_both_capslock"
+
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 3%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 3%- unmute
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # change focus
 bindsym $mod+h focus left
@@ -118,51 +125,67 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # set variable of workspaces
-set $workspace1 1: Document 
-set $workspace2 3: Chrome 
-set $workspace3 2: Editor 
-set $workspace4 4: IM 
-set $workspace5 5: Music 
-set $workspace6 6: Email 
+set $workspace1 "1 Document "
+set $workspace2 "2 Editor "
+set $workspace3 "3 Chrome "
+set $workspace4 "4 IM "
+set $workspace5 "5 Music "
+set $workspace6 "6 Project1 "
+set $workspace7 "7 Project2 "
+set $workspace8 "8 Project3 "
+set $workspace9 "9 Java "
+set $workspace10 "10 Virtual"
+
+# set variable of screen
+set $screen1 eDP1
+set $screen2 HDMI1
+
+# bind workspace for screen
+workspace $workspace1 output $screen1
+workspace $workspace2 output $screen1
+workspace $workspace3 output $screen1
+workspace $workspace4 output $screen1
+workspace $workspace5 output $screen1
+workspace $workspace6 output $screen2
+workspace $workspace7 output $screen2
+workspace $workspace8 output $screen2
+workspace $workspace9 output $screen2
+workspace $workspace10 output $screen2
+
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+3 workspace $workspace2
-bindsym $mod+2 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace number $workspace1
+bindsym $mod+2 workspace number $workspace2
+bindsym $mod+3 workspace number $workspace3
+bindsym $mod+4 workspace number $workspace4
+bindsym $mod+5 workspace number $workspace5
+bindsym $mod+6 workspace number $workspace6
+bindsym $mod+7 workspace number $workspace7
+bindsym $mod+8 workspace number $workspace8
+bindsym $mod+9 workspace number $workspace9
+bindsym $mod+0 workspace number $workspace10
 
 # assign windows to workspace
-assign [class="Google-chrome"] $workspace2
-assign [class="Emacs"] $workspace3
-assign [class="Atom"] $workspace3
-assign [class="Gnome-terminal"] $workspace3
+assign [class="Emacs"] $workspace2
+assign [class="Code"] $workspace2
+assign [class="Google-chrome"] $workspace3
 assign [class="discord"] $workspace4
+assign [class="electronic-wechat"] $workspace4
 assign [class="Wine"] $workspace4
-assign [class="netease-cloud-music"] $workspace2
-assign [class="Evolution"] $workspace6
-
+assign [class="netease-cloud-music"] $workspace5
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+3 move container to workspace $workspace2
-bindsym $mod+Shift+2 move container to workspace $workspace3
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace $workspace5
 bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -179,16 +202,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
+        bindsym Down resize shrink height 10 px or 10 ppt
+        bindsym Up resize grow height 10 px or 10 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"

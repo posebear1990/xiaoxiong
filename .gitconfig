@@ -2,7 +2,7 @@
 	default = simple
 [user]
 	name = peixiong.gao
-	email = peixiong.gao@hypers.com
+	email = posebear1990@gmail.com
 [alias]
 	unignore = update-index --no-assume-unchanged
 	ignore = update-index --assume-unchanged
@@ -19,5 +19,3 @@
 	br = branch
 [core]
 	editor = vim
-[https]
-	proxy = 127.0.0.1:1080
