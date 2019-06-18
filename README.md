@@ -1,4 +1,5 @@
-##　.config/i3/config
+## .config/i3/config
+
 i3 ｗｍ的配置文件：
 
 ```
@@ -16,7 +17,7 @@ https://unix.stackexchange.com/questions/334083/i3-windows-manager-assigning-win
 sudo apt-get install imwheel -y
 ```
 
-##　 Export / Import Gnome Terminal Profile
+## Export / Import Gnome Terminal Profile
 
 ```
 dconf dump /org/gnome/terminal/legacy/profiles:/:1430663d-083b-4737-a7f5-8378cc8226d1/ > material-theme-profile.dconf
