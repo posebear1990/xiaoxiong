@@ -1,6 +1,6 @@
 ## .config/i3/config
 
-i3 ｗｍ的配置文件：
+i3 wｍ的配置文件：
 
 ```
 assign [class="Google-chrome"] $workspace2
