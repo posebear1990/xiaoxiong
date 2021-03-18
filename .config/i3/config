@@ -50,7 +50,7 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # set screen
-exec "sleep 2 && xrandr --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 1920x0 --rotate normal --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x360 --rotate normal --output VIRTUAL1 --off"
+exec "sleep 2 && xrandr --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output eDP1 --mode 1920x1080 --pos 2560x360 --rotate normal --output VIRTUAL1 --off"
 exec "sleep 2 && feh --bg-fill ~/.config/i3/wallpaper.png"
 
 # start when login
